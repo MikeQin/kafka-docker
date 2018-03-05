@@ -13,7 +13,7 @@ This is my environment for your reference. If your environment is different from
 
 Here is the diagram to show the environment.
 
-![environment](https://github.com/MikeQin/kafka-docker/blob/master/images/environment.png)
+![environment](https://github.com/MikeQin/kafka-docker/raw/master/images/environment.png)
 
 ## Pull ##
 
