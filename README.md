@@ -1,5 +1,5 @@
 # Kafka 1.0.0 ( & Zookeeper) in Docker #
-- Apache Kafka (1.0.0) Docker Image Bundled with Zookeeper
+<b>Apache Kafka (1.0.0) Docker Image Bundled with Zookeeper</b>
 
 ## Motivation ##
 Why do I create this Kafka (& Zookeeper) docker image? Simply because I couldn't find any better Kafka docker images bundled with Zookeeper for my development needs. I need the latest Kafka 1.0.0 to work in docker. Explored spotify/kafka docker image (currently Kafka 0.10.1.0), and it's not up to date yet. Therefore, I've decided to create one myself.
