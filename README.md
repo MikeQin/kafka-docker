@@ -13,7 +13,7 @@ This is my environment for your reference. If your environment is different from
 
 Here is the diagram to show the environment.
 
-![environment](https://github.com/MikeQin/kafka-docker/blob/master/images/environment.png)
+![environment](https://raw.githubusercontent.com/MikeQin/kafka-docker/blob/master/images/environment.png)
 
 ## Pull ##
 
@@ -51,7 +51,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
 
 Here is the diagram to show Kafka server container listens on 'localhost:9092'.
 
-![localhost](https://github.com/MikeQin/kafka-docker/blob/master/images/localhost.png)
+![localhost](https://raw.githubusercontent.com/MikeQin/kafka-docker/blob/master/images/localhost.png)
 
 ### Kafka server container listening on 'kafka:9092' ###
 
@@ -75,7 +75,7 @@ docker run --rm -it --name consumer --link kafka michaeldqin/kafka \
 
 Here is the diagram to show Kafka server container listens on 'kafka:9092'.
 
-![container](https://github.com/MikeQin/kafka-docker/blob/master/images/container.png)
+![container](https://raw.githubusercontent.com/MikeQin/kafka-docker/blob/master/images/container.png)
 
 ## Kafka Broker Configurations ##
 
