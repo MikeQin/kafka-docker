@@ -11,6 +11,9 @@ This is my environment for your reference. If your environment is different from
 * Ubuntu (16.04 LTS) in Virtual Box
 * Installed Docker (17.12.0-ce, build c97c6d6) in Ubuntu
 
+Here is the diagram to show the environment.
+![environment](https://github.com/MikeQin/kafka-docker/blob/master/images/environment.png)
+
 ## Pull ##
 
 ```docker pull michaeldqin/kafka ```
@@ -39,6 +42,9 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
     --topic test --from-beginning
 ```
 
+Here is the diagram to show Kafka server container listens on 'localhost:9092'.
+![localhost](https://github.com/MikeQin/kafka-docker/blob/master/images/localhost.png)
+
 ### Kafka server container listening on 'kafka:9092' ###
 
 * To allow other containers to connect / link to Kafka server, you have to run the Kafka server in a "container" mode, the ADVERTISED_LISTENERS environment variable must set to 'kafka' instead:
@@ -58,6 +64,9 @@ docker run --rm -it --name consumer --link kafka michaeldqin/kafka \
     kafka-console-consumer.sh --bootstrap-server kafka:9092 \
     --topic test --from-beginning
 ```
+
+Here is the diagram to show Kafka server container listens on 'kafka:9092'.
+![container](https://github.com/MikeQin/kafka-docker/blob/master/images/container.png)
 
 ## Kafka Broker Configurations ##
 
