@@ -1,5 +1,5 @@
 # Kafka 1.0.0 ( & Zookeeper) in Docker #
-<b>Apache Kafka (1.0.0) Docker Image Bundled with Zookeeper</b>
+Apache Kafka (1.0.0) Docker Image Bundled with Zookeeper
 
 ## Motivation ##
 Why do I create this Kafka (& Zookeeper) docker image? Simply because I couldn't find any better Kafka docker images bundled with Zookeeper for my development needs. I need the latest Kafka 1.0.0 to work in docker. Explored spotify/kafka docker image (currently Kafka 0.10.1.0), and it's not up to date yet. Therefore, I've decided to create one myself.
@@ -11,13 +11,19 @@ This is my environment for your reference. If your environment is different from
 * Ubuntu (16.04 LTS) in Virtual Box
 * Installed Docker (17.12.0-ce, build c97c6d6) in Ubuntu
 
-Here is the diagram to show the environment.</br>
+Here is the diagram to show the environment.
 
 ![environment](https://github.com/MikeQin/kafka-docker/blob/master/images/environment.png)
 
 ## Pull ##
 
-```docker pull michaeldqin/kafka ```
+You can pull the docker image from docker hub:
+
+```sh
+docker pull michaeldqin/kafka 
+```
+
+[Apache Kafka (1.0.0) Docker Image Bundled with Zookeeper @ Docker Hub](https://hub.docker.com/r/michaeldqin/kafka/)
 
 This docker image is built on:
 * Kafka version: 1.0.0
@@ -27,47 +33,47 @@ This docker image is built on:
 ### Kafka server container listening on 'localhost:9092' ###
 
 * To allow host client or remote client to connect to Kafka server, your ADVERTISED_LISTENERS environment variable must set to 'localhost', and your Kafka server must run in a "localhost" mode:
-```bash
+```sh
 docker run --rm -d -p 2181:2181 -p 9092:9092 \
     --env ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 \
     --name kafka -h kafka michaeldqin/kafka
 ```
 * To start a producer (in host machine or remote), run:
-```bash
+```sh
 $KAFKA_HOME/bin/kafka-console-producer.sh \
     --broker-list localhost:9092 --topic test
 ```
 * To start a consumer (in host machine or remote), run:
-```bash
+```sh
 $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
     --topic test --from-beginning
 ```
 
-Here is the diagram to show Kafka server container listens on 'localhost:9092'.</br>
+Here is the diagram to show Kafka server container listens on 'localhost:9092'.
 
 ![localhost](https://github.com/MikeQin/kafka-docker/blob/master/images/localhost.png)
 
 ### Kafka server container listening on 'kafka:9092' ###
 
 * To allow other containers to connect / link to Kafka server, you have to run the Kafka server in a "container" mode, the ADVERTISED_LISTENERS environment variable must set to 'kafka' instead:
-```bash
+```sh
 docker run --rm -d -p 2181:2181 -p 9092:9092 \
     --env ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092 \
     --name kafka -h kafka michaeldqin/kafka
 ```
 * To start a producer from another container that connects to Kafka server container, run:
-```bash
+```sh
 docker run --rm -it --name producer --link kafka michaeldqin/kafka \
     kafka-console-producer.sh --broker-list kafka:9092 --topic test
 ```
 * To start a consumer from third container that connects to Kafka server container, run:
-```shell
+```sh
 docker run --rm -it --name consumer --link kafka michaeldqin/kafka \
     kafka-console-consumer.sh --bootstrap-server kafka:9092 \
     --topic test --from-beginning
 ```
 
-Here is the diagram to show Kafka server container listens on 'kafka:9092'.</br>
+Here is the diagram to show Kafka server container listens on 'kafka:9092'.
 
 ![container](https://github.com/MikeQin/kafka-docker/blob/master/images/container.png)
 
@@ -80,7 +86,7 @@ Use the following format:
 
 ### BROKER CONFIGURATIONS ###
 
-```
+```sh
 # DEFAULT: advertised.listeners=null
 #ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
 
