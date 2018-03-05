@@ -20,7 +20,7 @@ This docker image is built on:
 * Scala version: 2.12
 
 ## Run ##
-##### Kafka server container listening on 'localhost:9092' #####
+### Kafka server container listening on 'localhost:9092' ###
 
 * To allow host client or remote client to connect to Kafka server, your ADVERTISED_LISTENERS environment variable must set to 'localhost', and your Kafka server must run in a "localhost" mode:
 ```bash
@@ -53,7 +53,7 @@ docker run --rm -it --name producer --link kafka michaeldqin/kafka \
     kafka-console-producer.sh --broker-list kafka:9092 --topic test
 ```
 * To start a consumer from third container that connects to Kafka server container, run:
-```bash
+```shell
 docker run --rm -it --name consumer --link kafka michaeldqin/kafka \
     kafka-console-consumer.sh --bootstrap-server kafka:9092 \
     --topic test --from-beginning
