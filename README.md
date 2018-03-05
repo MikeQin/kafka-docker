@@ -11,7 +11,7 @@ This is my environment for your reference. If your environment is different from
 * Ubuntu (16.04 LTS) in Virtual Box
 * Installed Docker (17.12.0-ce, build c97c6d6) in Ubuntu
 
-Here is the diagram to show the environment.
+Here is the diagram to show the environment.</br>
 ![environment](https://github.com/MikeQin/kafka-docker/blob/master/images/environment.png)
 
 ## Pull ##
@@ -42,7 +42,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
     --topic test --from-beginning
 ```
 
-Here is the diagram to show Kafka server container listens on 'localhost:9092'.
+Here is the diagram to show Kafka server container listens on 'localhost:9092'.</br>
 ![localhost](https://github.com/MikeQin/kafka-docker/blob/master/images/localhost.png)
 
 ### Kafka server container listening on 'kafka:9092' ###
@@ -65,7 +65,7 @@ docker run --rm -it --name consumer --link kafka michaeldqin/kafka \
     --topic test --from-beginning
 ```
 
-Here is the diagram to show Kafka server container listens on 'kafka:9092'.
+Here is the diagram to show Kafka server container listens on 'kafka:9092'.</br>
 ![container](https://github.com/MikeQin/kafka-docker/blob/master/images/container.png)
 
 ## Kafka Broker Configurations ##
